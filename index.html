@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     CampusVibes — colourful student site (fresh build)
+     Photos live ONLY in assets/ and jump to front in the popup
+     whenever you click anywhere. Nothing else to configure!
+     ============================================================ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusVibes — Study, Laugh, Repeat 🎉</title>
+  <meta name="description" content="CampusVibes: the most colourful study companion for college students." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;600&family=Baloo+2:wght@600;700;800&family=Moul&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>" />
+</head>
+<body>
+  <!-- Doodles + speech bubbles (decorative only, never block clicks) -->
+  <div id="doodles" aria-hidden="true">
+    <span class="doodle d1">⭐</span>
+    <span class="doodle d2">📎</span>
+    <span class="doodle d3">💜</span>
+    <span class="doodle d4">⚡</span>
+    <span class="doodle d5">🌈</span>
+    <span class="doodle d6">📚</span>
+    <span class="doodle d7">✏️</span>
+    <span class="doodle d8">🎓</span>
+    <span class="doodle d9">💡</span>
+    <span class="doodle d10">📌</span>
+    <span class="doodle d11">☕</span>
+    <span class="doodle d12">🚀</span>
+    <span class="bubble b1">padikku mone! 📚</span>
+    <span class="bubble b2">attendance 75% ✅</span>
+    <span class="bubble b3">exam in 12 days! 😅</span>
+    <span class="bubble b4">chai break? ☕</span>
+    <span class="bubble b5">lab record pending! 📝</span>
+    <span class="bubble b6">CGPA 9 loading… ⏳</span>
+  </div>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div class="top-ticker" id="top-ticker" aria-live="polite">
+    <span>🌈 <strong id="ticker-status">Welcome to CampusVibes!</strong> &nbsp;—&nbsp; 12,400+ students &nbsp;—&nbsp; <span id="ticker-joke">click anywhere for a surprise!</span></span>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="navbar">
+    <a class="logo" href="#home" data-nav="home">
+      <span class="logo-emoji" id="logo-emoji">🎉</span>
+      <span class="logo-text">Campus<em>Vibes</em></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#features" data-nav="features">Features</a>
+      <a href="#playground" data-nav="playground">Tools</a>
+      <a href="#team" data-nav="team">Friends</a>
+      <a href="#pricing" data-nav="pricing">Pricing</a>
+      <a href="#faq" data-nav="faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-ghost" id="login-btn">Log In</button>
+      <button class="btn btn-primary" id="cta-btn">Join Free</button>
+      <button class="btn btn-danger-ghost" id="exit-btn" title="Log out">Log Out</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#features" data-nav="features">Features</a>
+    <a href="#playground" data-nav="playground">Tools</a>
+    <a href="#team" data-nav="team">Friends</a>
+    <a href="#pricing" data-nav="pricing">Pricing</a>
+    <a href="#faq" data-nav="faq">FAQ</a>
+    <button class="btn btn-primary" id="mobile-cta">Join Free</button>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="badge" id="hero-badge">
+            <span class="pulse-dot"></span>
+            🌟 India's most colourful campus app &nbsp;•&nbsp; <span id="visitor-count">visitor #0042</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="glitch-text rainbow-text" id="hero-title" data-text="Study hard, laugh harder.">Study hard, <span class="highlight">laugh harder.</span></span>
+          </h1>
+          <p class="hero-sub" id="hero-sub">
+            Timetables, notes, attendance and good vibes — everything a
+            student needs, wrapped in colours.
+            <span class="fine-print">Free forever. No credit card. Only fun.</span>
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary btn-lg magnetic" id="hero-start">Start the Fun →</button>
+            <button class="btn btn-outline btn-lg magnetic" id="hero-demo">▶ Watch Demo</button>
+          </div>
+          <div class="hero-meta">
+            <div class="avatars" aria-hidden="true">
+              <img src="assets/photo-1.jpeg" alt="" />
+              <img src="assets/photo-2.jpeg" alt="" />
+              <img src="assets/photo-3.jpeg" alt="" />
+              <img src="assets/photo-4.jpeg" alt="" />
+              <span class="more">12k</span>
+            </div>
+            <p>⭐ 4.9/5 from 2,300+ reviews &nbsp;•&nbsp; <span id="live-users">1,337 students online now</span></p>
+          </div>
+        </div>
+
+        <div class="hero-card" id="hero-card">
+          <div class="window-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="window-title" id="window-title">My Colourful Dashboard</span>
+          </div>
+          <div class="window-body">
+            <div class="stat-row">
+              <div class="stat"><small>Attendance</small><strong id="stat-useful">92.4%</strong><div class="bar"><i style="width:92%"></i></div></div>
+              <div class="stat"><small>CGPA</small><strong>8.7</strong><div class="bar"><i style="width:87%"></i></div></div>
+              <div class="stat"><small>Tasks done</small><strong id="stat-bugs">48</strong><div class="bar"><i style="width:64%"></i></div></div>
+            </div>
+            <div class="terminal" id="hero-terminal" aria-label="Today's schedule">
+              <div><span class="t-green">09:00</span> <span class="t-dim">— Data Structures (Room 204)</span></div>
+              <div><span class="t-green">11:30</span> <span class="t-dim">— Lab day! Bring your record 📝</span></div>
+              <div><span class="t-green">14:00</span> <span id="terminal-typing">Focus session — 25 min</span><span class="caret">▊</span></div>
+              <div class="t-dim" id="terminal-output">✓ 3 tasks done today. Superstar! 🌟</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="deploy-btn">＋ Add Today's Plan</button>
+          </div>
+          <div class="sticker s1">100% colourful ✨</div>
+          <div class="sticker s2">made for students 💜</div>
+        </div>
+      </div>
+      <div class="hero-ticker">
+        <div class="marquee" aria-hidden="true">
+          <span>🌈 STUDY • LAUGH • REPEAT • 12,400+ STUDENTS • 120+ COLLEGES • CLICK ANYWHERE FOR A SURPRISE • &nbsp;</span>
+          <span>🌈 STUDY • LAUGH • REPEAT • 12,400+ STUDENTS • 120+ COLLEGES • CLICK ANYWHERE FOR A SURPRISE • &nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="strip">
+      <div class="strip-item"><strong id="stat-clicks">0</strong><span>clicks celebrated</span></div>
+      <div class="strip-item"><strong>38,200</strong><span>notes shared</span></div>
+      <div class="strip-item"><strong id="stat-glitches">0</strong><span>photos jumped out</span></div>
+      <div class="strip-item"><strong>120+</strong><span>happy colleges</span></div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
+      <p class="eyebrow">✨ Colourful toolkit</p>
+      <h2 id="features-title">Everything fun, <em>everything useful</em></h2>
+      <p class="section-sub">Tap any card — a friend might jump out to say hi! 📸</p>
+      <div class="cards">
+        <article class="card" data-feature="timetable">
+          <div class="card-icon">📅</div>
+          <h3>Smart Timetable</h3>
+          <p>Classes, labs and deadlines in rainbow colours.</p>
+          <button class="card-btn">Open Timetable</button>
+        </article>
+        <article class="card" data-feature="notes">
+          <div class="card-icon">📝</div>
+          <h3>Notes Hub</h3>
+          <p>Share notes with classmates in one click.</p>
+          <button class="card-btn">Browse Notes</button>
+        </article>
+        <article class="card" data-feature="attendance">
+          <div class="card-icon">✅</div>
+          <h3>Attendance Tracker</h3>
+          <p>Never fall below 75% ever again. Promise*</p>
+          <button class="card-btn">Check %</button>
+        </article>
+        <article class="card" data-feature="focus">
+          <div class="card-icon">⏱️</div>
+          <h3>Focus Timer</h3>
+          <p>25-minute rainbow pomodoros with breaks.</p>
+          <button class="card-btn">Start Focus</button>
+        </article>
+        <article class="card" data-feature="doubts">
+          <div class="card-icon">💡</div>
+          <h3>Doubt Solver</h3>
+          <p>Ask anything. Get answers with explanations.</p>
+          <button class="card-btn">Ask Now</button>
+        </article>
+        <article class="card" data-feature="games">
+          <div class="card-icon">🎮</div>
+          <h3>Break Games</h3>
+          <p>Quick games for well-earned study breaks.</p>
+          <button class="card-btn">Play</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ TOOLS ============ -->
+    <section class="section playground" id="playground">
+      <p class="eyebrow">🧪 Play zone</p>
+      <h2>Click everything. <em>Seriously, everything.</em></h2>
+      <p class="section-sub">Photos jumped out: <strong id="chaos-label">0 yet — click anywhere!</strong></p>
+      <div class="chaos-wrap">
+        <label for="chaos-meter">Fun meter</label>
+        <div class="chaos-bar"><i id="chaos-meter" style="width:8%"></i></div>
+        <small id="chaos-hint">Every click makes it more colourful.</small>
+      </div>
+      <div class="play-grid">
+        <div class="play-card">
+          <h3>1. Catch Me!</h3>
+          <p>The button is shy. Catch it 5 times!</p>
+          <div class="dodge-arena" id="dodge-arena">
+            <button class="btn btn-primary" id="dodge-btn">Click Me!</button>
+          </div>
+          <small>Catches: <span id="dodge-count">0</span>/5 🏆</small>
+        </div>
+        <div class="play-card">
+          <h3>2. Student Login</h3>
+          <p>Log in with anything. Anything at all.</p>
+          <form id="login-form" autocomplete="off">
+            <input type="text" id="login-user" placeholder="username" required />
+            <input type="password" id="login-pass" placeholder="password" required />
+            <button class="btn btn-primary" type="submit">Log In 🔐</button>
+          </form>
+        </div>
+        <div class="play-card">
+          <h3>3. Fun Mail</h3>
+          <p>Get colourful mail. Maybe. Someday.</p>
+          <form id="subscribe-form" autocomplete="off">
+            <input type="email" id="sub-email" placeholder="you@college.edu" required />
+            <button class="btn btn-outline" type="submit">Subscribe 💌</button>
+          </form>
+        </div>
+        <div class="play-card">
+          <h3>4. Lucky Download</h3>
+          <p class="fine-print">100% surprise inside</p>
+          <button class="btn btn-primary" id="download-btn">⬇ Download Surprise</button>
+          <div class="progress hidden" id="download-progress"><i id="download-bar"></i><span id="download-label">0%</span></div>
+        </div>
+        <div class="play-card">
+          <h3>5. Compliment Machine</h3>
+          <p>Free compliments. Slightly suspicious ones.</p>
+          <button class="btn btn-outline" id="compliment-btn">Compliment Me 💅</button>
+          <p class="compliment-out" id="compliment-out">Waiting to hype you up…</p>
+        </div>
+        <div class="play-card">
+          <h3>6. Magic Search</h3>
+          <p>Search anything. Get a friend instead.</p>
+          <div class="search-row">
+            <input type="text" id="useless-search" placeholder="Search anything…" />
+            <button class="btn btn-primary" id="search-btn">Search</button>
+          </div>
+          <p class="compliment-out" id="search-out"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FRIENDS (photos hidden — tap to reveal!) ============ -->
+    <section class="section" id="team">
+      <p class="eyebrow">📸 Meet the stars</p>
+      <h2>Our friends, <em>live on this page!</em></h2>
+      <p class="section-sub">Tap any photo for a bigger surprise! (Or just click anywhere.)</p>
+      <div class="team-grid">
+        <button class="mate" data-friend="0"><img src="assets/photo-1.jpeg" alt="MITHRA" /><strong>MITHRA</strong><span>ediyeyyy sughalleee</span></button>
+        <button class="mate" data-friend="1"><img src="assets/photo-2.jpeg" alt="DURGAA" /><strong>DURGAA</strong><span>gwak gwak gwak</span></button>
+        <button class="mate" data-friend="2"><img src="assets/photo-3.jpeg" alt="RITHUU" /><strong>RITHUU</strong><span>allelum enne kaanan nalla bangiya</span></button>
+        <button class="mate" data-friend="3"><img src="assets/photo-4.jpeg" alt="APARNA" /><strong>APARNA</strong><span>muhihihihi</span></button>
+        <button class="mate" data-friend="4"><img src="assets/photo-5.jpeg" alt="AKSHARAA" /><strong>AKSHARAA</strong><span>anakk entha vayyee</span></button>
+        <button class="mate" data-friend="5"><img src="assets/photo-6.jpeg" alt="AKSHH" /><strong>AKSHH</strong><span>podaa pottaaaa</span></button>
+        <button class="mate" data-friend="6"><img src="assets/photo-7.jpeg" alt="ASHNAAA" /><strong>ASHNAAA</strong><span>mwahhhhh</span></button>
+        <button class="mate" data-friend="7"><img src="assets/photo-8.jpeg" alt="KATHERINEEE" /><strong>KATHERINEEE</strong><span>cuteness overloadeddd</span></button>
+        <button class="mate" data-friend="8"><img src="assets/photo-9.jpeg" alt="SHIFAAA" /><strong>SHIFAAA</strong><span>nikk nikkk nikk</span></button>
+        <button class="mate" data-friend="9"><img src="assets/photo-10.jpeg" alt="ASHNAAA 2.0" /><strong>ASHNAAA 2.0</strong><span>gangeeeee</span></button>
+        <button class="mate" data-friend="10"><img src="assets/photo-11.jpeg" alt="BITCHES" /><strong>BITCHES</strong><span>nee yethadaaaa pottaaaa</span></button>
+        <button class="mate" data-friend="11"><img src="assets/photo-12.jpeg" alt="SMIJEEE" /><strong>SMIJEEE</strong><span>enth nokki nikkaaa</span></button>
+        <button class="mate" data-friend="12"><img src="assets/photo-13.jpeg" alt="BHAMAAA" /><strong>BHAMAAA</strong><span>hiiii gooyzzzzz</span></button>
+      </div>
+      <!-- BIG upload station right after the photo series -->
+      <div class="big-upload">
+        <label class="big-upload-btn">📤 UPLOAD YOUR PHOTO!
+          <input type="file" id="big-upload-input" accept="image/*" hidden multiple />
+        </label>
+        <p>Your face joins the series above + jumps out on clicks! 🎉</p>
+      </div>
+    </section>
+
+    <!-- ============ QUOTES ============ -->
+    <section class="section quotes">
+      <p class="eyebrow">💬 Wall of love</p>
+      <h2>Students <em>can't stop clicking</em></h2>
+      <p class="section-sub">Certified colourful reviews</p>
+      <div class="quote-grid">
+        <blockquote>"I clicked once and a friend jumped out. 10/10 would click again." <cite>— Happy Clicker, CSE '27</cite></blockquote>
+        <blockquote>"The most colourful site in our exhibition. My eyes are happy." <cite>— Visitor #0102</cite></blockquote>
+        <blockquote>"I tried to log out 4 times. Best 4 times of my day." <cite>— Visitor #0041</cite></blockquote>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing">
+      <p class="eyebrow">💸 Pricing</p>
+      <h2>Free clicks for <em>everyone</em></h2>
+      <div class="price-grid">
+        <div class="price">
+          <h3>Clicker</h3><p class="amount">₹0</p>
+          <ul><li>✅ Unlimited clicks</li><li>✅ All 13 photo friends</li><li>✅ Infinite doodles</li></ul>
+          <button class="btn btn-outline price-btn">Start Clicking</button>
+        </div>
+        <div class="price featured">
+          <span class="pop">MOST COLOURFUL ⭐</span>
+          <h3>Super Clicker</h3><p class="amount">₹0 <small>also free!</small></p>
+          <ul><li>✅ Everything in Clicker</li><li>✅ Extra sparkles</li><li>✅ Certificate of Clicking</li></ul>
+          <button class="btn btn-primary price-btn">Click Harder</button>
+        </div>
+        <div class="price">
+          <h3>Professor</h3><p class="amount">A+ <small>pls give full marks</small></p>
+          <ul><li>✅ Smile at exhibition</li><li>✅ Say "excellent"</li><li>✅ Full marks pls 🙏</li></ul>
+          <button class="btn btn-outline price-btn">Bless Us 🙏</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <p class="eyebrow">❓ Good questions</p>
+      <h2>Frequently asked <em>questions</em></h2>
+      <div class="faq-list">
+        <details class="faq"><summary>Why does a photo jump out when I click?</summary><p>Because clicking is more fun with friends! Every click brings a surprise photo with its own dialogue.</p></details>
+        <details class="faq"><summary>How many photos are hiding here?</summary><p>13! Click around to meet them all — each has its own funny dialogue.</p></details>
+        <details class="faq"><summary>Is it really free?</summary><p>Yes! Clicks are unlimited and always will be.</p></details>
+        <details class="faq"><summary>How do I log out?</summary><p>Press Log Out and follow the 4-step farewell. It's worth it, promise.</p></details>
+        <details class="faq"><summary>Will this get full marks?</summary><p>Professor: colourful design ✅, interactive ✅, responsive ✅, funny ✅. 10/10 please! 🙏</p></details>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section cta-final">
+      <h2 id="final-title">Clicked everything yet? There's always one more photo! 📸</h2>
+      <p>Or… try to leave. We dare you.</p>
+      <div class="hero-buttons center">
+        <button class="btn btn-primary btn-lg" id="final-exit">🚪 Log Out</button>
+        <button class="btn btn-outline btn-lg" id="final-chaos">🎲 Surprise Me!</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="foot-grid">
+      <div><strong>CampusVibes</strong><p>The most colourful college project at the exhibition.</p></div>
+      <div><strong>Status</strong><p id="footer-status">🟢 All systems colourful</p><p>Fun level: <span id="footer-sanity">100%</span></p></div>
+      <div><strong>Note</strong><p>13 friends were photographed in the making of this site. Click to meet them all!</p></div>
+    </div>
+    <p class="copy">© 2026 CampusVibes • Made with 🌈 at college • <button class="linklike" id="secret-btn">mystery button</button></p>
+    <div class="credits">
+      <div class="created-by">CREATED BY</div>
+      <div class="creators">ANNA MARIA &amp; RIFA</div>
+    </div>
+  </footer>
+
+  <!-- ============ BIG FRONT PHOTO POPUP (photo + dialogue together) ============ -->
+  <div class="modal-backdrop hidden" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="modal">
+      <button class="modal-x" id="modal-close" aria-label="Close pop-up">✕</button>
+      <div class="modal-error" id="modal-kicker">📸 PHOTO 1 • YOU CLICKED!</div>
+      <div class="modal-main">
+        <div class="modal-photo">
+          <img id="modal-img" src="assets/photo-1.jpeg" alt="Surprise photo of a friend" />
+          <span class="modal-badge" id="modal-friend-badge">📸 MITHRA</span>
+        </div>
+        <div class="modal-text">
+          <h3 id="modal-title">ediyeyyy sughalleee</h3>
+          <p id="modal-msg">Nee click cheythu, njan front-il vannu! 🎉</p>
+          <p class="modal-from" id="modal-from">— MITHRA, jumping in front of you 👀</p>
+          <div class="modal-actions">
+            <button class="btn btn-primary btn-sm" id="modal-ok">Haha, OK! 😂</button>
+            <button class="btn btn-ghost btn-sm" id="modal-more">Next photo! 🎲</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader hidden" id="loader" aria-hidden="true">
+    <div class="loader-box">
+      <div class="spinner"></div>
+      <p id="loader-text">Bringing a friend… 42%</p>
+      <div class="progress"><i id="loader-bar"></i></div>
+      <small>Picking the funniest photo…</small>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <div class="modal-backdrop hidden" id="bye-backdrop">
+    <div class="modal bye">
+      <h2>🎓 Logged out! See you soon!</h2>
+      <p>You met <span id="bye-glitches">0</span> photo friends. Come back for the rest!</p>
+      <p class="fine-print">Your clicks will be missed. 🥹</p>
+      <div class="modal-actions center">
+        <a class="btn btn-primary" href="https://www.google.com" target="_blank" rel="noopener">Continue ↗</a>
+        <button class="btn btn-outline" id="bye-stay">Stay &amp; click more 🥹</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
